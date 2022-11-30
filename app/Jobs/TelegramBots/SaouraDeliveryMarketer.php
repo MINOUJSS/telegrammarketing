@@ -55,10 +55,10 @@ class SaouraDeliveryMarketer implements ShouldQueue
                 //$caption="<p>لطلب المنتج إضغط على الرابط  التالي التوصيل مجاني في ولاية بشار </p>";
                 //$text=' لطلب المنتج إضغط على الرابط  التالي التوصيل مجاني في ولاية بشار '.$product->link;
                 //$html=$photo;
-                $caption="<strong><a href='".$product->link."'>".$product->title."</a></strong><b> (".$product->price.")</b>";
+                $caption="<strong><a href='".$product->link."'>".$product->title."</a></strong> <b> (".$product->price.") </b>";
                 //$caption.='<pre>التوصيل مجاني في  ولاية بشار</pre>';
                 //$html.=$product->link;
-                //$html.='لطلب المنتج إضغط على الرابط التالي التوصيل مجاني في ولاية بشار '.$product->link;
+                $caption.='لطلب المنتج إضغط على الرابط التالي التوصيل مجاني في ولاية بشار '.$product->link;
                 //$disable_notification ='notification';               
                 $bot_acss_token=$bots[rand(0,$bots->count()-1)]->token;
                 $client = new Client();
