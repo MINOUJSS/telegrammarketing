@@ -15,19 +15,19 @@ class TelegrameBotsController extends Controller
     //---------index    
     public function index()
     {
-        $products=SaouraProducts::where('site_id',1)->get();
-        $caption =$products[1]->title.' '.$products[1]->price.' لطلب المنتج إضغط على الرابط  التالي التوصيل مجاني في ولاية بشار '.$products[1]->link;
-        $bots=TelegramBots::all();
-        $bot_acss_token=$bots[rand(0,$bots->count()-1)]->token;
-        $channel=TelegramChannels::orderBy('id')->where('category_id',2)->first();
-        $chat_id=$channel->chat_id;
-        $photo=$products[1]->image;
-        $caption="<strong><a href='".$products[1]->link."'>".$products[1]->title."</a></strong> <b> (".$products[1]->price.") </b>";
-        $caption.='لطلب المنتج إضغط على الرابط التالي التوصيل مجاني في ولاية بشار '.$products[1]->link ;        
-        $client = new Client();
-        //$crawler = $client->request('POST','https://api.telegram.org/bot'.$bot_acss_token.'/sendMessage?chat_id='.$chat_id.'&text='.$html.'&parse_mode=html');
-        //$crawler = $client->request('POST','https://api.telegram.org/bot'.$bot_acss_token.'/sendPhoto?chat_id='.$chat_id.'&photo='.$photo.'&caption='.$caption.'&parse_mode=html');
-        SendPhotoWithHtmlMessage($client,$bot_acss_token,$chat_id,$photo,$caption);
+        // $products=SaouraProducts::where('site_id',1)->get();
+        // $caption =$products[1]->title.' '.$products[1]->price.' لطلب المنتج إضغط على الرابط  التالي التوصيل مجاني في ولاية بشار '.$products[1]->link;
+        // $bots=TelegramBots::all();
+        // $bot_acss_token=$bots[rand(0,$bots->count()-1)]->token;
+        // $channel=TelegramChannels::orderBy('id')->where('category_id',2)->first();
+        // $chat_id=$channel->chat_id;
+        // $photo=$products[1]->image;
+        // $caption="<strong><a href='".$products[1]->link."'>".$products[1]->title."</a></strong> <b> (".$products[1]->price.") </b>";
+        // $caption.='لطلب المنتج إضغط على الرابط التالي التوصيل مجاني في ولاية بشار '.$products[1]->link ;        
+        // $client = new Client();
+        // //$crawler = $client->request('POST','https://api.telegram.org/bot'.$bot_acss_token.'/sendMessage?chat_id='.$chat_id.'&text='.$html.'&parse_mode=html');
+        // //$crawler = $client->request('POST','https://api.telegram.org/bot'.$bot_acss_token.'/sendPhoto?chat_id='.$chat_id.'&photo='.$photo.'&caption='.$caption.'&parse_mode=html');
+        // SendPhotoWithHtmlMessage($client,$bot_acss_token,$chat_id,$photo,$caption);
         //---------
         $bots=TelegramBots::orderBy('id')->get();
         return view('admin.pages.telegram_bots.index',compact('bots'));        
