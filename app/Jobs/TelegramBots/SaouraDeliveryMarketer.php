@@ -58,12 +58,14 @@ class SaouraDeliveryMarketer implements ShouldQueue
                 $caption="<strong><a href='".$product->link."'>".$product->title."</a></strong> <b> (".$product->price.") </b>";
                 //$caption.='<pre>التوصيل مجاني في  ولاية بشار</pre>';
                 //$html.=$product->link;
-                $caption.='لطلب المنتج إضغط على الرابط التالي التوصيل مجاني في ولاية بشار '.$product->link;
+                $caption.='لطلب المنتج إضغط على الرابط التالي التوصيل مجاني في ولاية بشار : ';
+                $caption.='<a href="'.$product->link.'">أطلبه الأن</a>';
                 //$disable_notification ='notification';               
                 $bot_acss_token=$bots[rand(0,$bots->count()-1)]->token;
                 $client = new Client();
                 //$crawler = $client->request('POST','https://api.telegram.org/bot'.$bot_acss_token.'/sendMessage?chat_id='.$chat_id.'&text='.$html.'&parse_mode=html');
-                $crawler = $client->request('POST','https://api.telegram.org/bot'.$bot_acss_token.'/sendPhoto?chat_id='.$chat_id.'&photo='.$photo.'&caption='.$caption.'&parse_mode=html');
+                //$crawler = $client->request('POST','https://api.telegram.org/bot'.$bot_acss_token.'/sendPhoto?chat_id='.$chat_id.'&photo='.$photo.'&caption='.$caption.'&parse_mode=html');
+                SendPhotoWithHtmlMessage($client,$bot_acss_token,$chat_id,$photo,$caption);
 
           }
                     

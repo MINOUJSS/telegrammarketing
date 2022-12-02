@@ -84,13 +84,14 @@ class Kernel extends ConsoleKernel
         // $client = new Client();
         // $crawler = $client->request('POST','https://api.telegram.org/bot'.$bot_acss_token.'/sendPhoto?chat_id='.$chat_id.'&photo='.$photo.'&caption='.$caption.'&disable_notification='.$disable_notification);//.'&reply_to_message_id='.$reply_to_message_id.'&reply_markup='.$reply_markup.'parse_mode='.$parse_mode);
         // }
-        })->twiceDailyAt(7, 16, 15)->runInBackground();
+        })->everyMinute()->runInBackground();
         //everyMinute()
         //hourly();
         // ->everyFiveMinutes();
+        //twiceDaily(9, 17)
         $schedule->call(function(){
             SaouraDeliveryMarketer::dispatch();
-        })->twiceDailyAt(8, 17, 15)->runInBackground();
+        })->everyMinute()->runInBackground();
     }
 
     /**
