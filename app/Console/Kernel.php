@@ -92,6 +92,10 @@ class Kernel extends ConsoleKernel
         $schedule->call(function(){
             SaouraDeliveryMarketer::dispatch();
         })->everyMinute()->runInBackground();
+        //------------
+        $schedule->command('inspire')->hourly();
+        $schedule->command('queue:work')->everyMinute();
+        $schedule->command('queue:restart')->everyFiveMinutes();
     }
 
     /**
