@@ -8,7 +8,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Goutte\Client;
-use App\Saouraproducts;
+use App\SaouraProducts;
 use App\TelegramBots;
 use App\TelegramChannels;
 use App\TelegramGroups;
