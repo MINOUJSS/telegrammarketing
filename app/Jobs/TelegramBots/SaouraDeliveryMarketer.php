@@ -53,6 +53,9 @@ class SaouraDeliveryMarketer implements ShouldQueue
                 $bot_acss_token=$bots[rand(0,$bots->count()-1)]->token;
                 $client = new Client();         
                 SendPhotoWithHtmlMessage($client,$bot_acss_token,$chat_id,$photo,$caption);
+                //update product posted
+                $product->posted=$product->posted+1;
+                $product->update();
           }
                           
              }
