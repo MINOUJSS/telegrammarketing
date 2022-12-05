@@ -29,6 +29,8 @@ class CreateProductsTable extends Migration
                 ->on('categorys')
                 ->onDelete('cascade');
             $table->text('link');
+            $table->integer('posted')->default(0);
+            $table->integer('aproved')->default(0);
             $table->timestamps();
         });
     }

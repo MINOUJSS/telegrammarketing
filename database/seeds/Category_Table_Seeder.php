@@ -14,6 +14,11 @@ class Category_Table_Seeder extends Seeder
     {
         //
         $category1=Categorys::create([
+            'name'=>'بدون تصنيف',
+            'created_at'=>date('Y-m-d h:i:s'),
+            'updated_at'=>date('Y-m-d h:i:s')
+        ]);
+        $category1=Categorys::create([
             'name'=>'رياضة',
             'created_at'=>date('Y-m-d h:i:s'),
             'updated_at'=>date('Y-m-d h:i:s')

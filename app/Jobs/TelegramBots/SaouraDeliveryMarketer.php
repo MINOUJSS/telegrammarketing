@@ -35,42 +35,26 @@ class SaouraDeliveryMarketer implements ShouldQueue
     public function handle()
     {                    
         //get saoura delivery products
-        $products=SaouraProducts::where('site_id',1)->get();     
-        if($products->count()>=1){               
-        foreach ($products as $product) {
+        $product=SaouraProducts::orderBy('posted')->where('site_id',1)->first();     
+        if($product!=null){                      
           //select chanel or Group to post this product by site and category  
-          $channels=TelegramChannels::orderBy('id')->where('category_id',$product->category_id)->get();         
+          $channels=TelegramChannels::orderBy('id')->where('category_id',1)->get();         
           foreach ($channels as $channel) {       
             //select the bot manager to post this  product
             $bots=TelegramBots::all();
             //post products in this chanels or  groups
-//  //----test
-//  $client = new Client();
-//  $crawler = $client->request('POST','https://api.telegram.org/bot'.$bots[rand(0,$bots->count()-1)]->token.'/sendMessage?chat_id=-1001708078516&text='.$product->link);
-//  //---------
                 $chat_id=$channel->chat_id;
-                $photo=$product->image;
-                //$caption =$product->title.' '.$product->price.' لطلب المنتج إضغط على الرابط  التالي التوصيل مجاني في ولاية بشار '.$product->link;
-                //$caption ="<b>".$product->title."</b>";
-                //$caption="<p>لطلب المنتج إضغط على الرابط  التالي التوصيل مجاني في ولاية بشار </p>";
-                //$text=' لطلب المنتج إضغط على الرابط  التالي التوصيل مجاني في ولاية بشار '.$product->link;
-                //$html=$photo;
-                $caption="<strong><a href='".$product->link."'>".$product->title."</a></strong> <b> (".$product->price.") </b>";
-                //$caption.='<pre>التوصيل مجاني في  ولاية بشار</pre>';
-                //$html.=$product->link;
-                $caption.='لطلب المنتج إضغط على الرابط التالي التوصيل مجاني في ولاية بشار : ';
+                $photo=$product->image;  
+                $caption="<strong><a href='".$product->link."'>".$product->title."</a></strong> <b> (".$product->price.") </b>";     
+                $caption.='<pre>التوصيل مجاني في  ولاية بشار</pre>';
+                $caption.='لطلب المنتج إضغط على الرابط التالي : ';
                 $caption.='<a href="'.$product->link.'">أطلبه الأن</a>';
                 //$disable_notification ='notification';               
                 $bot_acss_token=$bots[rand(0,$bots->count()-1)]->token;
-                $client = new Client();
-                //$crawler = $client->request('POST','https://api.telegram.org/bot'.$bot_acss_token.'/sendMessage?chat_id='.$chat_id.'&text='.$html.'&parse_mode=html');
-                //$crawler = $client->request('POST','https://api.telegram.org/bot'.$bot_acss_token.'/sendPhoto?chat_id='.$chat_id.'&photo='.$photo.'&caption='.$caption.'&parse_mode=html');
+                $client = new Client();         
                 SendPhotoWithHtmlMessage($client,$bot_acss_token,$chat_id,$photo,$caption);
-
           }
-                    
-
-        }
+                          
              }
         //                
 
