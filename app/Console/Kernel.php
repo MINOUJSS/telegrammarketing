@@ -34,13 +34,19 @@ class Kernel extends ConsoleKernel
         //everyFiveMinutes()
         //twiceDaily(9, 17)
         //scraping saoura delivery and post
-        $schedule->call(function(){
-           ScrapingSaouraDelivery::dispatch();        
-        })->hourly()->runInBackground();
+        if(scraper_is_active())
+        {
+            $schedule->call(function(){
+                ScrapingSaouraDelivery::dispatch();        
+             })->hourly()->runInBackground();
+        }       
         //marketing saouradelivery every hour
-        $schedule->call(function(){
-            SaouraDeliveryMarketer::dispatch();
-        })->hourly()->runInBackground();
+        if(auto_markter_is_active())
+        {
+            $schedule->call(function(){
+                SaouraDeliveryMarketer::dispatch();
+            })->hourly()->runInBackground();
+        }        
         //------------
         //$schedule->command('inspire')->hourly();
         $schedule->command('queue:work')->everyMinute();

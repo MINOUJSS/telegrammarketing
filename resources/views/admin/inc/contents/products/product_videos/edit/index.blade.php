@@ -15,6 +15,8 @@
     <section class="content">
 
       <!-- Your Page Content Here -->
+      edit product_videos
+      <!-- End Your Page Content Here -->
 
     </section><!-- /.content -->
   </div>

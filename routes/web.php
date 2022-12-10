@@ -48,11 +48,32 @@ Route::get('/telegram_groups/create','Admin\TelegramGroupsController@create')->n
 Route::post('/telegram_groups/store','Admin\TelegramGroupsController@store')->name('admin.telegram_groups.store');
 Route::get('/telegram_groups/edit/{id}','Admin\TelegramGroupsController@edit')->name('admin.telegram_groups.edit');
 Route::post('/telegram_groups/update','Admin\TelegramGroupsController@update')->name('admin.telegram_groups.update');
+//
+Route::get('/categories','Admin\SaouraCategoryController@index')->name('admin.categories.index');
+Route::get('/category/create','Admin\SaouraCategoryController@create')->name('admin.category.create');
+Route::post('/category/store','Admin\SaouraCategoryController@store')->name('admin.category.store');
+Route::get('/category/edit/{id}','Admin\SaouraCategoryController@edit')->name('admin.category.edit');
+Route::post('/category/update','Admin\SaouraCategoryController@update')->name('admin.category.update');
+//
+Route::get('/settings','Admin\SaouraSettingController@index')->name('admin.settings.index');
+Route::get('/setting/create','Admin\SaouraSettingController@create')->name('admin.setting.create');
+Route::post('/setting/store','Admin\SaouraSettingController@store')->name('admin.setting.store');
+Route::get('/setting/edit/{id}','Admin\SaouraSettingController@edit')->name('admin.setting.edit');
+Route::post('/setting/update','Admin\SaouraSettingController@update')->name('admin.setting.update');
+
+Route::get('/setting/auto_marketing/statu/{id}','Admin\SaouraSettingController@auto_marketing')->name('admin.setting.auto_marketing');
+Route::get('/setting/scraper/statu/{id}','Admin\SaouraSettingController@scraper_statu')->name('admin.setting.scraper.statu');
+//
+Route::get('/products','Admin\SaouraProductsConrtoller@index')->name('admin.products.index');
+Route::get('/product/edit/{id}','Admin\SaouraProductsConrtoller@edit')->name('admin.product.edit');
+Route::get('/product/aproved/{id}','Admin\SaouraProductsConrtoller@aproved')->name('admin.product.aproved');
+Route::post('/product/update','Admin\SaouraProductsConrtoller@update')->name('admin.product.update');
+Route::delete('/product/delete','Admin\SaouraProductsConrtoller@destroy')->name('admin.product.delete');
 //:::::::::::::::Scrapin Routs:::::::::::::
 //  Amazon scraper
 Route::get('amzone/scraper/home','AmazoneScraperController@amazon_scraper')->name('amzone.home.scraper');
 // saouradelivey scraper
-Route::get('saoura/products/scraper','SaouraDeliveryScraperController@category_product_scraper')->name('saoura.products.scraper');
+Route::get('saoura/products/scraper','Admin\SaouraDeliveryScraperController@category_product_scraper')->name('saoura.products.scraper');
 //::::::::::::::telegrame Routs :::::::::
 Route::get('telegram/get_me','TelegrameBotsController@get_me')->name('telegrame.get_me');
 Route::get('telegram/send_message','TelegrameBotsController@send_message')->name('telegram.send_message');

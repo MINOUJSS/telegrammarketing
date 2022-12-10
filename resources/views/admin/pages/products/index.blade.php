@@ -6,7 +6,7 @@
 @include('admin.inc.side-bar.index')
 @endsection
 @section('content-wrapper')
-@include('admin.inc.contents.prodcts.index')
+@include('admin.inc.contents.products.index')
 @endsection
 @section('main-footer')
 @include('admin.inc.footer.index')

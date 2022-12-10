@@ -31,6 +31,26 @@
         <li class="header">HEADER</li>
         <!-- Optionally, you can add icons to the links -->
         <li class="treeview">
+          <a href="#"><i class="fa fa-link"></i> <span> الأصناف</span> <i class="fa fa-angle-left pull-right"></i></a>
+          <ul class="treeview-menu">            
+            <li><a href="{{route('admin.category.create')}}">إضافة صنف</a></li>
+            <li><a href="{{route('admin.categories.index')}}">عرض الكل</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#"><i class="fa fa-link"></i> <span> الإعدادات</span> <i class="fa fa-angle-left pull-right"></i></a>
+          <ul class="treeview-menu">            
+            <li><a href="{{route('admin.setting.create')}}">إضافة إعداد</a></li>
+            <li><a href="{{route('admin.settings.index')}}">عرض الكل</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#"><i class="fa fa-link"></i> <span> المنتجات</span> <i class="fa fa-angle-left pull-right"></i></a>
+          <ul class="treeview-menu">     
+            <li><a href="{{route('admin.products.index')}}">عرض الكل</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>مسح المواقع (Scraping)</span> <i class="fa fa-angle-left pull-right"></i></a>
           <ul class="treeview-menu">            
             <li><a href="{{route('admin.url_for_scrap.create')}}">إضافة عنوان للمسح</a></li>

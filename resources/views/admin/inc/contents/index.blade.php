@@ -16,5 +16,7 @@
 
       <!-- Your Page Content Here -->
 
+      <!-- End Your Page Content Here -->
+
     </section><!-- /.content -->
   </div>

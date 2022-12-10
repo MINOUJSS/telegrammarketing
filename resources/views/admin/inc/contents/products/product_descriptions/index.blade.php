@@ -15,6 +15,8 @@
     <section class="content">
 
       <!-- Your Page Content Here -->
+      index product_description
+      <!-- End Your Page Content Here -->
 
     </section><!-- /.content -->
   </div>

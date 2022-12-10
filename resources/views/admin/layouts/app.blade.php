@@ -30,7 +30,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     -->
     <link rel="stylesheet" href="{{url('admins')}}/dist/css/skins/skin-blue.min.css">
     <!--ckeditor css-->
-    <link rel="stylesheet" href="{{asset('admins/plugins/ckeditor/content.css')}}">
+    {{-- <link rel="stylesheet" href="{{asset('admins/plugins/ckeditor/content.css')}}"> --}}
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -38,9 +38,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
       <!--ckeditor-->
-      <script src="{{asset('admins/plugins/ckeditor/config.js')}}"></script>
+      {{-- <script src="{{asset('admins/plugins/ckeditor/config.js')}}"></script>
       <script src="{{asset('admins/plugins/ckeditor/ckeditor.js')}}"></script>
-      <script src="{{asset('admins/plugins/ckeditor/style.js')}}"></script>
+      <script src="{{asset('admins/plugins/ckeditor/style.js')}}"></script> --}}
   </head>
   <!--
   BODY TAG OPTIONS:
@@ -96,10 +96,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
          Both of these plugins are recommended to enhance the
          user experience. Slimscroll is required when using the
          fixed layout. -->
-    <script>
+    {{-- <script>
           CKEDITOR.replace('ckeditor');
-    </script>
+    </script> --}}
 
-<script src="{{asset('/sites/landing_page/js/my_functions.js')}}" type="text/javascript"></script>
+<script src="{{asset('/admins/js/MyFunctions.js')}}" type="text/javascript"></script>
   </body>
 </html>
