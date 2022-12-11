@@ -43,7 +43,7 @@ function get_bot_statu($id)
 //scraper_is_active()
 function scraper_is_active()
 {
-  $seting=App\Settings::findOrFail(1);
+  $setting=App\Settings::findOrFail(1);
   if($setting->value=='on')
   {
     return true;
@@ -55,7 +55,7 @@ function scraper_is_active()
 //scraper_is_active()
 function auto_markter_is_active()
 {
-  $seting=App\Settings::findOrFail(2);
+  $setting=App\Settings::findOrFail(2);
   if($setting->value=='on')
   {
     return true;
