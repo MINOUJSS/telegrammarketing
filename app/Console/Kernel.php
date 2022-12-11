@@ -48,8 +48,8 @@ class Kernel extends ConsoleKernel
             })->hourly()->runInBackground();
         }        
         //------------
-        //$schedule->command('inspire')->hourly();
-        $schedule->command('queue:work')->everyMinute();
+        $schedule->command('inspire')->hourly();
+        $schedule->command('queue:work')->everyThreeMinutes();
         $schedule->command('queue:restart')->everyFiveMinutes();
     }
 
