@@ -59,7 +59,8 @@ class ScrapingSaouraDelivery implements ShouldQueue
             $innerdata['price']=$pric;
             $innerdata['category_id']=$url->category_id;
             $innerdata['site_id']=$url->site_id;
-            $innerdata['link']=$link->attr('href');
+            // $innerdata['link']=$link->attr('href');
+            $innerdata['link']='https://saouradelivery.com/quick-order/product/'.$title->attr('data-slug').'?#quick-order';
             $data[]=$innerdata;
             });
             //insert this object to products table            
