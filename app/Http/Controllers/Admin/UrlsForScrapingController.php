@@ -125,12 +125,12 @@ class UrlsForScrapingController extends Controller
     // ---------destroy
     public function destroy(Request $request)
     {
-        dd($request);
+        //dd($request);
         //find the url
-        $url=UrlsForScraping::findOrFail($request->url);
+        $url=UrlsForScraping::findOrFail($request->url_id);
         //delete the url
         $url->delete();
-
+        return redirect()->back()->with('message','تم حذف العنوان بنجاح');
     }
     
 }
