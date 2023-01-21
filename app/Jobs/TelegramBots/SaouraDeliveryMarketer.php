@@ -46,7 +46,7 @@ class SaouraDeliveryMarketer implements ShouldQueue
                 $chat_id=$channel->chat_id;
                 $photo=$product->image;  
                 $caption="<strong><a href='".$product->link."'>".$product->title."</a></strong> <b> (".$product->price.") </b>";     
-                $caption.='<pre>التوصيل مجاني في  ولاية بشار</pre>';
+                // $caption.='<pre>التوصيل مجاني في  ولاية بشار</pre>';
                 $caption.='لطلب المنتج إضغط على الرابط التالي : ';
                 $caption.='<a href="'.$product->link.'">أطلبه الأن</a>';
                 //$disable_notification ='notification';               
