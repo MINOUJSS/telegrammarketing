@@ -17,13 +17,21 @@
       <!-- Your Page Content Here -->
       <div class="box">
         <div class="box-header">
-          <h3 class="box-title">Responsive Hover Table</h3>
+          <h3 class="box-title">
+            <form action="{{route('admin.product.marketing.update')}}" method="POST" enctype="application/x-www-form-urlencoded">
+              @csrf
+                <div class="form-group">
+                  <button type="submit" class="btn btn-warning">تصفير عددمرات التسويق</button>                  
+                </div>                
+              </form>
+          </h3>
           <div class="box-tools">
             <div class="input-group" style="width: 150px;">
               <input type="text" name="table_search" class="form-control input-sm pull-right" placeholder="Search">
               <div class="input-group-btn">
                 <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
               </div>
+              
             </div>
           </div>
         </div><!-- /.box-header -->

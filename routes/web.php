@@ -69,6 +69,9 @@ Route::get('/product/edit/{id}','Admin\SaouraProductsConrtoller@edit')->name('ad
 Route::get('/product/aproved/{id}','Admin\SaouraProductsConrtoller@aproved')->name('admin.product.aproved');
 Route::post('/product/update','Admin\SaouraProductsConrtoller@update')->name('admin.product.update');
 Route::delete('/product/delete','Admin\SaouraProductsConrtoller@destroy')->name('admin.product.delete');
+//edit product number of market
+Route::post('/product/marketing/update','Admin\SaouraProductsConrtoller@marketing_update')->name('admin.product.marketing.update');
+
 //:::::::::::::::Scrapin Routs:::::::::::::
 //  Amazon scraper
 Route::get('amzone/scraper/home','AmazoneScraperController@amazon_scraper')->name('amzone.home.scraper');

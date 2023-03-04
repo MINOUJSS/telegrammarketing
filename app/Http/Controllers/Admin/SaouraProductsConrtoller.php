@@ -55,4 +55,16 @@ class SaouraProductsConrtoller extends Controller
         //redirect with success message
         return redirect()->back()->with('message','تم  حذف المنتج بنجاح');
     }
+    //marketing_update
+    public function marketing_update()
+    {
+        $products=SaouraProducts::all();
+        foreach($products as $product)
+        {
+            $selected_product=SaouraProducts::findOrFail($product->id);
+            $selected_product->posted=0;
+            $selected_product->update();
+        }
+        return redirect()->back();
+    }
 }
