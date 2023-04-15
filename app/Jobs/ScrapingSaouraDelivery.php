@@ -41,11 +41,12 @@ class ScrapingSaouraDelivery implements ShouldQueue
             $url->update();
             //get pages of this url            
             $pages=$url->num_pages;            
-            for ($i=0; $i <= $pages-1 ; $i++) {           
+            for ($i=1; $i <= $pages-1 ; $i++) {           
             //scrap all prodacts in selected url page by page
             $data=[];            
-            $client = new Client();            
-            $crawler = $client->request('GET',$url->url);
+            $client = new Client();  
+            $scrap_url=$url->url.'?page='.$i;          
+            $crawler = $client->request('GET',$scrap_url);
             $div=$crawler->filter('.sc-product')->each(function($eliment) use (&$data,$url){
                 $innerdata=[];
                 $title=$eliment->filter('.product-name')->first();

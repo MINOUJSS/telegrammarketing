@@ -37,7 +37,7 @@ class SaouraDeliveryMarketer implements ShouldQueue
         //get saoura delivery products
         // $product=SaouraProducts::orderBy('posted')->where('aproved',1)->first();     
         $product=SaouraProducts::orderBy('posted')->orderBy('id','desc')->where('aproved',1)->first();     
-        if($product!=null){                      
+        if($product!=null){                 
           //select chanel or Group to post this product by site and category  
           $channels=TelegramChannels::orderBy('id')->where('category_id',1)->get();         
           foreach ($channels as $channel) {       
